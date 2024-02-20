@@ -1,0 +1,32 @@
+.form{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.field{
+   width: 80%;
+}
+
+.field p{
+    color: red;
+}
+
+.form .field input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.form button{
+    width: 18%;
+    padding: 12px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+}

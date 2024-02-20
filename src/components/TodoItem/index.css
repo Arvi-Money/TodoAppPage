@@ -1,0 +1,36 @@
+.item-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: lightgray;
+    font-size: 20px;
+}
+
+.item-wrapper .check-name{
+    display: flex;
+    gap: 10px;
+}
+
+.actions{
+    display: flex;
+    gap: 10px;
+}
+
+.actions .fa-pen-to-square{
+    color: white;
+    background-color: green;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.actions .fa-trash-can{
+    color: white;
+    background-color: red;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
