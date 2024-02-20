@@ -1,61 +1,53 @@
-import { useState } from 'react';
-import './index.css'
-import { useRef } from 'react'
+import React, { useState, useRef } from 'react'; 
+import './index.css';
+import { getData } from '../../utils/function';
 
 function Form() {
-  const nameRef = useRef('');
-  const [error, setError] = useState('');
+  const nameRef = useRef(null); 
+  const [error, setError] = useState(''); 
 
-  function validate(nameRef) {
+
+  function validate() {
     if (nameRef.current.value.trim().length < 5) {
       nameRef.current.focus();
-      setError("Kamida 5ta belgidan iborat bolishi kerak")
+      setError("Kamida 5 ta belgidan iborat bo'lishi kerak"); 
       return false;
-    } else{
-      setError('');
-    }
-
-    return true;
-  }
-
-
-  function getData() {
-    let data = [];
-    if (localStorage.getItem('todos')) {
-      data = JSON.parse(localStorage.getItem('todos'))
+    } else {
+      setError(''); 
+      return true;
     }
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const isValid = validate(nameRef);
+    const isValid = validate(); 
     if (isValid) {
-      const todo ={
+      const todo = {
         name: nameRef.current.value,
         status: 'unchecked',
-        id: Date.now()
-      }
+        id: Date.now(),
+      };
 
       let todos = getData();
-      todos.push(todo);
-      localStorage.setItem('todos', JSON.stringify(todos));
-      nameRef.current.value = '';
+      todos.push(todo); 
+      localStorage.setItem('todos', JSON.stringify(todos)); 
+      changeState(todos);
+      nameRef.current.value = ''; 
     }
-  }
 
+
+  }
 
   return (
     <form className='form' onSubmit={handleSubmit}>
       <div className="field">
-        <input type="text" ref={nameRef}/>
-        {
-          error && <p>{error}</p>
-        }
+        <input type="text" ref={nameRef} />
+        {error && <p>{error}</p>}
       </div>
-        <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
-  )
+  );
 }
 
-export default Form
+export default Form;
